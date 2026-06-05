@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocuMind — Groq AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-text">Docu<span>Mind</span></div>
+      <div class="logo-sub">Powered by Groq AI</div>
+    </div>
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept=".pdf,.docx,.txt,.md" />
+      <div class="upload-icon">⬆</div>
+      <span class="upload-label">Drop file or click to browse</span>
+      <span class="upload-hint">PDF · DOCX · TXT · MD</span>
+    </div>
+
+    <div class="mode-row">
+      <label class="toggle">
+        <input type="checkbox" id="appendToggle" />
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+      <span>Append to existing index</span>
+    </div>
+
+    <button class="btn-ingest" id="btnIngest" disabled>⚡ Index Document</button>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">Processing…</div>
+    </div>
+
+    <div class="docs-header">Indexed Documents</div>
+    <div class="doc-list" id="docList"></div>
+    <button class="btn-reset" id="btnReset">🗑 Clear Index</button>
+  </aside>
+
+  <main class="main">
+    <div class="chat-header">
+      <div class="chat-title">Ask your documents anything</div>
+      <div class="status-pill" id="statusPill">
+        <span class="status-dot"></span>No Documents
+      </div>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">📚</div>
+        <div class="empty-title">No documents loaded</div>
+        <div class="empty-desc">Upload a document from the sidebar, then ask questions about it.</div>
+      </div>
+    </div>
+
+    <div class="input-bar">
+      <div class="input-row">
+        <textarea id="question" placeholder="Ask a question about your documents…" rows="1"></textarea>
+        <button class="btn-send" id="btnSend">➤</button>
+      </div>
+      <div class="input-hint">Enter to send · Shift+Enter for new line</div>
+    </div>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

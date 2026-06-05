@@ -20,6 +20,7 @@ langchain
 langchain-community
 langchain-groq
 langchain-huggingface
+langchain-text-splitters
 faiss-cpu
 sentence-transformers
 pypdf
@@ -27,4 +28,4 @@ python-docx
 python-dotenv
 werkzeug
 numpy
-torch
+tiktoken
